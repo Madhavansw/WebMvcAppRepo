@@ -1,0 +1,22 @@
+﻿@model Employee
+
+<form id="edit-form">
+    <input type="hidden" asp-for="Id" />
+    <div>
+        <label>Name</label>
+        <input type="text" asp-for="Name" class="form-control" />
+    </div>
+    <div>
+        <label>Position</label>
+        <input type="text" asp-for="Position" class="form-control" />
+    </div>
+    <div>
+        <label>Office</label>
+        <input type="text" asp-for="Office" class="form-control" />
+    </div>
+    <div>
+        <label>Age</label>
+        <input type="number" asp-for="Age" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-success">Save</button>
+</form>

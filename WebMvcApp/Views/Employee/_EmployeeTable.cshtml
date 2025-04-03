@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Employee>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Office</th>
+            <th>Age</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var employee in Model)
+        {
+            <tr>
+                <td>@employee.Name</td>
+                <td>@employee.Position</td>
+                <td>@employee.Office</td>
+                <td>@employee.Age</td>
+                <td>
+                    <button class="btn btn-primary edit-btn" data-id="@employee.Id">Edit</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

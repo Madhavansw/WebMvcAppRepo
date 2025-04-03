@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div id="modal-placeholder">
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // Load Edit Form
+        $('#employee-table').on('click', '.edit-btn', function () {
+            var id = $(this).data('id');
+            $.get('/Employee/Edit/' + id, function (data) {
+                $('#modal-placeholder').html(data);
+                $('#edit-form').submit(function (e) {
+                    e.preventDefault();
+                    $.post('/Employee/Edit', $(this).serialize(), function (response) {
+                        if (response.success) {
+                            loadEmployeeTable();
+                            $('#modal-placeholder').html('');
+                        }
+                    });
+                });
+            });
+        });// Reload Employee Table
+        function loadEmployeeTable() {
+            $.get('/Employee/GetEmployeeTable', function (data) {
+                $('#employee-table').html(data);
+            });
+        }
+    });
+</script>
